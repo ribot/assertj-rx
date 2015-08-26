@@ -1,0 +1,81 @@
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+group = "co.uk.ribot.assertj-rx"
+archivesBaseName = "assertj-rx"
+version = "0.1.0-SNAPSHOT"
+
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+signing {
+    sign configurations.archives
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            def sonatypeUsername = ""
+            def sonatypePassword = ""
+            try {
+                sonatypeUsername = sonatypeUsernameLocal
+                sonatypePassword = sonatypePasswordLocal
+            } catch (MissingPropertyException) {
+                println "Note: OOS Sonatype credentials not found in your local properties"
+            }
+
+            println "Username $sonatypeUsernameLocal"
+            println "Password $sonatypePasswordLocal"
+
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: sonatypeUsername, password: sonatypePassword)
+            }
+
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: sonatypeUsername, password: sonatypePassword)
+            }
+
+            pom.project {
+                name 'AssertJ Rx'
+                packaging 'jar'
+                description 'AssertJ-style assertions for RxJava Observables'
+                url 'https://github.com/ribot/assertj-rx'
+
+                scm {
+                    url 'git@github.com:ribot/assertj-rx.git'
+                    connection 'scm:git:git@github.com:ribot/assertj-rx.git'
+                    developerConnection 'scm:git:git@github.com:ribot/assertj-rx.git'
+                }
+
+                licenses {
+                    license {
+                        name 'The Apache License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'ivancarballo'
+                        name 'Ivan Carballo'
+                        email 'ivan@ribot.co.uk'
+                    }
+                }
+            }
+        }
+    }
+}

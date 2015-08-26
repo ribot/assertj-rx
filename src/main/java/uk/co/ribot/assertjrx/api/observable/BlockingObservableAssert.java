@@ -98,7 +98,7 @@ public class BlockingObservableAssert<T> extends AbstractAssert<BlockingObservab
     }
 
     /**
-     * Allows performing Assertj assertions over the a list of values emitted onNext()
+     * Allows performing Assertj assertions over the list of values emitted onNext()
      *
      * @return an instance of @{link ListAssert} initialized with the values received onNext()
      */
