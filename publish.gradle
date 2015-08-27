@@ -3,7 +3,7 @@ apply plugin: 'signing'
 
 group = "uk.co.ribot.assertj-rx"
 archivesBaseName = "assertj-rx"
-version = "0.1.0-SNAPSHOT"
+version = "0.1.0"
 
 
 task javadocJar(type: Jar) {
@@ -35,9 +35,6 @@ uploadArchives {
             } catch (MissingPropertyException) {
                 println "Note: OOS Sonatype credentials not found in your local properties"
             }
-
-            println "Username $sonatypeUsernameLocal"
-            println "Password $sonatypePasswordLocal"
 
             beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
