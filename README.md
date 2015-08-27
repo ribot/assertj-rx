@@ -52,10 +52,24 @@ assertThat(observable.toBlocking())
    .completes()
    .valuesCountIs(10);
 ```
-## Binaries
+## Installation
 
-__Coming soon to Maven central!__
+Artifacts are on Maven central. 
 
+Gradle:
+```groovy
+testCompile 'uk.co.ribot.assertj-rx:assertj-rx:0.1.0'
+```
+Maven:
+```xml
+<dependency>
+  <groupId>uk.co.ribot.assertj-rx</groupId>
+  <artifactId>assertj-rx</artifactId>
+  <version>0.1.0</version>
+  <scope>test</scope>
+</dependency>
+```
+Alternatively, you can download the jar from the [releases section](https://github.com/ribot/assertj-rx/releases).
 ## License 
 ```
 Copyright (C) 2015 Ribot Ltd.
