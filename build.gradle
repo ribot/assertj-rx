@@ -6,10 +6,13 @@ repositories {
 }
 
 dependencies {
-    compile 'io.reactivex:rxjava:1.0.14'
-    compile 'org.assertj:assertj-core:2.1.0'
+    final RXJAVA_VERSION = '1.0.14'
+    final ASSERTJ_VERSION = '2.1.0'
+
+    compile "io.reactivex:rxjava:$RXJAVA_VERSION"
+    compile "org.assertj:assertj-core:$ASSERTJ_VERSION"
 
     testCompile 'junit:junit:4.12'
-    testCompile 'io.reactivex:rxjava:1.0.14'
-    testCompile 'org.assertj:assertj-core:2.1.0'
+    testCompile "io.reactivex:rxjava:$RXJAVA_VERSION"
+    testCompile "org.assertj:assertj-core:$ASSERTJ_VERSION"
 }
