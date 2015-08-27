@@ -1,7 +1,7 @@
 apply plugin: 'maven'
 apply plugin: 'signing'
 
-group = "co.uk.ribot.assertj-rx"
+group = "uk.co.ribot.assertj-rx"
 archivesBaseName = "assertj-rx"
 version = "0.1.0-SNAPSHOT"
 
@@ -50,9 +50,9 @@ uploadArchives {
             }
 
             pom.project {
-                name 'AssertJ Rx'
+                name 'AssertJ RxJava'
                 packaging 'jar'
-                description 'AssertJ-style assertions for RxJava Observables'
+                description 'AssertJ assertions for RxJava Observables'
                 url 'https://github.com/ribot/assertj-rx'
 
                 scm {
