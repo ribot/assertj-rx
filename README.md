@@ -1,3 +1,8 @@
+Deprecated
+===========
+
+Assertj-rx is now deprecated. In-order to test observabales, please use the [TestSubscriber](http://reactivex.io/RxJava/javadoc/rx/observers/TestSubscriber.html#TestSubscriber%28rx.Subscriber%29) - more information on this can be found [here](https://labs.ribot.co.uk/unit-testing-rxjava-6e9540d4a329#.tjmv351u0). Whilst the current version still remains usable, there will no longer be any new development taking place.
+
 # AssertJ RxJava
 [AssertJ](http://joel-costigliola.github.io/assertj/) assertions for [RxJava](https://github.com/ReactiveX/RxJava) Observables.
 
